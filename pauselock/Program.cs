@@ -84,7 +84,7 @@ namespace pauselock
                 timeOutinMS = sysTimeouts.WAKEUPIDLETIMEOUT;
 
             if (timeOutinMS == 0)
-                timeOutinMS = 5;
+                timeOutinMS = 150;
 
             DisableDeviceSleep();
             Console.WriteLine("");
@@ -131,7 +131,7 @@ namespace pauselock
                 {
                     SetForegroundWindow(Handle);
                     SendKeys.SendWait("{NUMLOCK}");
-                    Console.WriteLine(Control.IsKeyLocked(Keys.NumLock));
+                    Console.WriteLine(System.DateTime.Now.ToString("HH:MM:ss") + ": " + Control.IsKeyLocked(Keys.NumLock));
                 }
 
                 //if (Counter > 1)
